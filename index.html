@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diante de Ti — Gratidão, Perdão e Clamor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1410;
+      --parchment:  #f5efe4;
+      --warm-mid:   #c8a97e;
+      --gold:       #b08040;
+      --ember:      #8b3a2a;
+      --ash:        #6b6258;
+      --cream:      #faf6ef;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--parchment);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ── GRAIN OVERLAY ───────────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── CANDLELIGHT GLOW ────────────────────────────────────── */
+    .glow-bg {
+      position: fixed;
+      top: -20%; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(ellipse at center, rgba(184,122,60,0.18) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+      animation: breathe 6s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%,100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+      50%      { opacity: 1;   transform: translateX(-50%) scale(1.07); }
+    }
+
+    /* ── LAYOUT ──────────────────────────────────────────────── */
+    .page {
+      position: relative; z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 36px 100px;
+    }
+
+    /* ── HEADER ──────────────────────────────────────────────── */
+    header {
+      text-align: center;
+      margin-bottom: 72px;
+      animation: fadeDown 1.2s ease both;
+    }
+    header .icon {
+      font-size: 2.6rem;
+      display: block;
+      margin-bottom: 18px;
+      filter: drop-shadow(0 2px 8px rgba(176,128,64,0.35));
+      animation: flicker 4s ease-in-out infinite;
+    }
+    @keyframes flicker {
+      0%,100% { opacity: 1; }
+      45%      { opacity: 0.82; }
+      50%      { opacity: 1; }
+      80%      { opacity: 0.9; }
+    }
+    header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.25;
+      letter-spacing: 0.04em;
+      color: var(--ember);
+    }
+    header p.subtitle {
+      margin-top: 14px;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--ash);
+      font-weight: 300;
+    }
+
+    /* ── DIVIDER ─────────────────────────────────────────────── */
+    .divider {
+      display: flex; align-items: center; gap: 16px;
+      margin: 48px 0;
+      opacity: 0.5;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .divider span { font-size: 1.5rem; color: var(--gold); }
+
+    /* ── PRAYER TEXT ─────────────────────────────────────────── */
+    .prayer {
+      animation: fadeUp 1.4s ease 0.3s both;
+    }
+    .prayer p {
+      font-size: clamp(1.5rem, 2.5vw, 1.25rem);
+      line-height: 2;
+      font-weight: 300;
+      color: #2a211a;
+      margin-bottom: 1.6em;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+    .prayer p.opening {
+      font-style: italic;
+      font-size: clamp(1.5rem, 2.8vw, 1.4rem);
+      color: var(--ember);
+      font-weight: 400;
+    }
+    .prayer p strong {
+      font-weight: 600;
+      color: var(--ember);
+    }
+    .prayer p em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* ── EMPHASIS BLOCK ──────────────────────────────────────── */
+    .emphasis {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px;
+      margin: 40px 0;
+      background: rgba(200,169,126,0.08);
+      border-radius: 0 4px 4px 0;
+    }
+    .emphasis p {
+      font-size: clamp(1.5rem, 2.6vw, 1.3rem) !important;
+      font-style: italic;
+      color: var(--ember) !important;
+      margin-bottom: 0 !important;
+      line-height: 1.9 !important;
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
+    /* ── DECLARATION ─────────────────────────────────────────── */
+    .declaration {
+      text-align: center;
+      padding: 40px 24px;
+      margin: 48px 0;
+      background: linear-gradient(135deg, rgba(139,58,42,0.06), rgba(176,128,64,0.1));
+      border: 1px solid rgba(176,128,64,0.25);
+      border-radius: 2px;
+    }
+    .declaration p {
+      font-size: clamp(1.5rem, 2.4vw, 1.25rem);
+      line-height: 1.9;
+      font-weight: 300;
+      color: var(--ink);
+      text-align: justify;
+      text-justify: inter-word;
+    }
+    .declaration p strong {
+      font-weight: 600;
+      color: var(--ember);
+    }
+
+    /* ── AMEN ────────────────────────────────────────────────── */
+    .amen {
+      text-align: center;
+      margin: 56px 0 40px;
+    }
+    .amen span {
+      font-size: clamp(2rem, 4vw, 2.4rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ember);
+      letter-spacing: 0.12em;
+    }
+    .amen .emoji { font-style: normal; font-size: 2rem; display: block; margin-top: 8px; }
+
+    /* ── VERSE ───────────────────────────────────────────────── */
+    .verse {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid rgba(176,128,64,0.3);
+      border-bottom: 1px solid rgba(176,128,64,0.3);
+      margin: 48px 0;
+    }
+    .verse blockquote {
+      font-size: clamp(1.5rem, 2.3vw, 1.2rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ash);
+      line-height: 1.8;
+    }
+    .verse cite {
+      display: block;
+      margin-top: 12px;
+      font-style: normal;
+      font-size: 1rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(176,128,64,0.2);
+    }
+    footer p {
+      font-size: 1.5rem;
+      color: var(--ash);
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── ANIMATIONS ──────────────────────────────────────────── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 520px) {
+      .page { padding: 32px 20px 50px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="glow-bg"></div>
+
+<main class="page">
+
+  <header>
+    <span class="icon">🕯️</span>
+    <h1>Diante de Ti</h1>
+    <p class="subtitle">Uma oração de gratidão, arrependimento e súplica</p>
+  </header>
+
+  <div class="divider"><span>✦</span></div>
+
+  <article class="prayer">
+
+    <p class="opening">
+      Pai celestial, Senhor da minha vida e Autor de cada novo começo,<br />
+      chego perto de Ti sem disfarces, sem guardar nada, sem esconder o que sinto.
+    </p>
+
+    <p>
+      Antes de pedir qualquer coisa, quero reconhecer o que já recebi.
+      <strong>Obrigado pelo fôlego de cada manhã,</strong>
+      pelo corpo e pela mente que ainda respondem, pelo ânimo que renasce
+      mesmo depois das quedas, e por essa paz teimosa que continua habitando nossa casa,
+      mesmo quando tudo ao redor parece instável.
+      Obrigado por me segurar quando eu já não tinha mais como me firmar sozinho.
+    </p>
+
+    <p>
+      Sou grato pelos ensinamentos que só o silêncio consegue passar,
+      pela paciência que fui obrigado a desenvolver esperando,
+      pelas chances que surgiram exatamente quando precisavam surgir —
+      e até pelos caminhos que se fecharam, porque foi ali que aprendi a persistir.
+      Obrigado pela disposição de continuar
+      e pela esperança que insiste em não morrer dentro de mim.
+    </p>
+
+    <p>
+      Agradeço pelos meus, pelo teto que ainda temos, pela comida na mesa
+      e por tudo o que chega até nós, dia após dia, sem que eu sempre entenda como.
+      Obrigado por proteger minha cabeça da ansiedade, meu coração do rancor
+      e meus pensamentos do medo excessivo.
+      Obrigado por reconstruir minhas forças, devolver minha segurança
+      e me dar motivo para acordar leve, mesmo quando o dia anterior foi pesado.
+    </p>
+
+    <p>
+      Tu acompanhaste cada escolha difícil que já precisei fazer —
+      os recomeços que exigiram coragem, as trocas do que era familiar
+      por um futuro que eu ainda não conseguia enxergar por completo.
+      Tu sabes o custo de cada passo dado sem certeza nenhuma,
+      de cada vez que apostei em dias melhores sem ver o caminho até o fim.
+    </p>
+
+    <div class="emphasis">
+      <p>
+        Tu estavas presente em cada tentativa que não deu certo,<br />
+        em cada porta que se abriu e, sem aviso, voltou a se fechar.<br />
+        Nada disso foi desperdiçado, Senhor, mesmo quando pareceu ser.<br />
+        Obrigado por eu continuar aqui, ainda em pé.
+      </p>
+    </div>
+
+    <div class="divider"><span>✦</span></div>
+
+    <p>
+      Pai, coloco em Tuas mãos a decepção de tantas portas que não se abriram.
+      Coloco as chances que pareciam garantidas e que ruíram do nada.
+      Coloco também a esperança que construí e que às vezes teima em não se concretizar.
+      Ainda que eu não compreenda o porquê, prefiro acreditar
+      que Tu estavas me guardando de algo, ou me moldando para algo maior.
+    </p>
+
+    <p>
+      Entrego a Ti cada pedido que ficou sem resposta, cada silêncio que ainda dói,
+      e toda comparação que insiste em me dizer que fico para trás enquanto os outros seguem.
+      Sei que esse pensamento não nasce de Ti,
+      por isso o devolvo agora, e peço perdão pelas vezes em que permiti
+      que ele me fizesse acreditar que existe algo de errado comigo.
+    </p>
+
+    <p>
+      Diante de Ti, assumo também as minhas falhas:
+      os momentos em que reagi com pouca paciência, em que questionei a Tua bondade,
+      em que confiei primeiro na minha própria capacidade antes de buscar a Ti,
+      em que deixei o medo ter mais peso do que a fé.
+      Peço perdão de coração — não para me punir,
+      mas para me aproximar ainda mais de Ti e mudar o que precisa mudar.
+    </p>
+
+    <div class="emphasis">
+      <p>
+        Silencia em mim a voz que só condena,<br />
+        e faz ecoar no lugar dela a Tua voz,<br />
+        aquela que ensina com amor, e não com culpa.
+      </p>
+    </div>
+
+    <div class="divider"><span>✦</span></div>
+
+    <p>
+      Senhor, <strong>este tem sido um dos períodos mais pesados da nossa caminhada.</strong>
+      A despensa está vazia. Minha esposa segura sozinha a conta do aluguel,
+      e sobre mim recai o peso de me sentir culpado, envergonhado, incapaz de ajudar como gostaria.
+      Existem noites em que a angústia toma conta de mim e o ar parece faltar.
+    </p>
+
+    <p>
+      A insegurança em relação a mim mesmo me consome por dentro.
+      Fico me perguntando se realmente tenho capacidade, se mereço uma chance,
+      se ainda existe alguém que enxerga valor no que posso oferecer.
+      Há momentos em que a tristeza me faz duvidar de tudo:
+      do meu valor, do meu propósito, do meu lugar neste mundo —
+      neste lugar novo, longe de quem eu conhecia, sem amigos nem parentes por perto,
+      apenas eu, minha esposa e meu enteado.
+    </p>
+
+    <p>
+      <strong>Mostra-me o caminho, Pai.</strong> Sinto-me perdido.
+      São tantas portas que não se abrem, tantos silêncios diante dos meus pedidos,
+      tanto esforço que ainda não trouxe resultado visível.
+      Manda-me um sinal. Uma confirmação. Uma fresta de luz.
+      <strong>Concede-me discernimento</strong> para as decisões deste momento tão delicado,
+      e que a Tua sabedoria seja mais forte do que a minha aflição.
+    </p>
+
+    <p>
+      Senhor, hoje trago diante de Ti o desejo de conquistar espaço na área de tecnologia.
+      Tu conheces meu coração, meus receios, minhas inseguranças
+      e as dúvidas que insistem em tentar abalar minha fé.
+      Muitas vezes acho que ainda não estou pronto, que preciso estudar mais,
+      me aprofundar mais, evoluir mais — mas também sei que ninguém começa já experiente.
+      Se a chance aparecer, eu vou correr atrás com dedicação
+      e entregar o meu melhor todos os dias.
+    </p>
+
+    <p>
+      Fortalece a minha mente para que eu pare de me medir pelos outros.
+      Afasta de mim a sensação de incapacidade, o medo de fracassar,
+      a ansiedade pelo que ainda vai vir e qualquer voz que insista em me diminuir.
+      <strong>Peço a Ti uma oportunidade de trabalho</strong> — não qualquer uma,
+      mas uma que me faça levantar de novo, que restitua a dignidade que sinto ter perdido,
+      que mostre para mim e para quem eu amo que valeu a pena insistir.
+    </p>
+
+    <div class="emphasis">
+      <p>
+        Não estou pedindo abundância, Senhor.<br />
+        Estou pedindo um chão estável onde minha família consiga se firmar.
+      </p>
+    </div>
+
+    <p>
+      Pai, dá forças à minha esposa. Ela tem sustentado muita coisa sozinha.
+      Renova o ânimo dela também nos dias em que ela quiser ceder ao cansaço.
+      Que ela nunca se sinta enfrentando isso sem companhia.
+      Que o nosso amor aguente essa pressão que tenta nos derrubar.
+      Cuida da nossa casa, da nossa mente e da nossa fé.
+    </p>
+
+    <p>
+      Declaro que existe um lugar reservado para mim —
+      onde a minha trajetória, a minha entrega e o meu caráter
+      serão vistos como diferencial, não como impedimento.
+      Declaro que tenho capacidade, que mereço uma oportunidade,
+      que meu potencial é verdadeiro, ainda que eu mesmo não consiga vê-lo por inteiro.
+      Declaro que meu propósito segue vivo — apenas está tomando um novo formato.
+    </p>
+
+    <div class="declaration">
+      <p>
+        Não serei vencido por esta fase.<br />
+        Serei <strong>transformado</strong> por ela.<br />
+        E quando eu deixar este vale para trás,<br />
+        vou carregar uma gratidão que poucos chegam a conhecer.
+      </p>
+    </div>
+
+    <p>
+      Por isso, Senhor — <strong>abre os caminhos certos. Fecha os errados.</strong>
+      Cruza a minha rota com as pessoas certas.
+      Remove os obstáculos que estão fora do meu alcance enxergar.
+      Age por mim onde eu não tenho como agir.
+      E faz com que, no momento em que a bênção chegar,
+      eu consiga reconhecer nela a Tua mão.
+    </p>
+
+    <p>
+      Entrego-me ao Teu tempo, à Tua forma de agir, ao Teu plano.<br />
+      Porque tudo o que planejei até aqui não deu certo,
+      mas o que Tu planejas jamais falha.
+      Não peço para enxergar o percurso inteiro —
+      peço apenas coragem para o próximo passo,
+      disposição para continuar mesmo com medo,
+      e confiança de que, mesmo diante do silêncio que não entendo,
+      Tu segues agindo por mim.
+    </p>
+
+  </article>
+
+  <div class="amen">
+    <span>Amém.</span>
+    <span class="emoji">🙏</span>
+  </div>
+
+  <div class="verse">
+    <blockquote>
+      "Não andeis ansiosos de coisa alguma; antes, em tudo, sejam conhecidas
+      diante de Deus as vossas petições, pela oração e súplica, com ação de graças.
+      E a paz de Deus, que excede todo o entendimento, guardará os vossos corações
+      e os vossos sentimentos em Cristo Jesus."
+    </blockquote>
+    <cite>— Filipenses 4:6–7</cite>
+  </div>
+
+  <div class="divider"><span>✦</span></div>
+
+  <footer>
+    <p>Desenvolvido por <a href="https://github.com/fabriciobzrr" target="_blank" rel="noopener">Fabricio Bezerra</a></p>
+  </footer>
+
+</main>
+
+</body>
+</html>
