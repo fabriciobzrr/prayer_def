@@ -29,7 +29,6 @@
       overflow-x: hidden;
     }
 
-    /* ── GRAIN OVERLAY ───────────────────────────────────────── */
     body::before {
       content: '';
       position: fixed; inset: 0;
@@ -37,7 +36,6 @@
       pointer-events: none; z-index: 0;
     }
 
-    /* ── CANDLELIGHT GLOW ────────────────────────────────────── */
     .glow-bg {
       position: fixed;
       top: -20%; left: 50%;
@@ -52,7 +50,6 @@
       50%      { opacity: 1;   transform: translateX(-50%) scale(1.07); }
     }
 
-    /* ── LAYOUT ──────────────────────────────────────────────── */
     .page {
       position: relative; z-index: 1;
       max-width: 960px;
@@ -60,7 +57,6 @@
       padding: 80px 36px 100px;
     }
 
-    /* ── HEADER ──────────────────────────────────────────────── */
     header {
       text-align: center;
       margin-bottom: 72px;
@@ -94,7 +90,6 @@
       font-weight: 300;
     }
 
-    /* ── DIVIDER ─────────────────────────────────────────────── */
     .divider {
       display: flex; align-items: center; gap: 16px;
       margin: 48px 0;
@@ -107,7 +102,6 @@
     }
     .divider span { font-size: 1.5rem; color: var(--gold); }
 
-    /* ── PRAYER TEXT ─────────────────────────────────────────── */
     .prayer {
       animation: fadeUp 1.4s ease 0.3s both;
     }
@@ -117,9 +111,6 @@
       font-weight: 300;
       color: #2a211a;
       margin-bottom: 1.6em;
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
     }
     .prayer p.opening {
       font-style: italic;
@@ -136,7 +127,6 @@
       color: var(--gold);
     }
 
-    /* ── EMPHASIS BLOCK ──────────────────────────────────────── */
     .emphasis {
       border-left: 3px solid var(--gold);
       padding: 20px 28px;
@@ -150,11 +140,8 @@
       color: var(--ember) !important;
       margin-bottom: 0 !important;
       line-height: 1.9 !important;
-      text-align: justify;
-      text-justify: inter-word;
     }
 
-    /* ── DECLARATION ─────────────────────────────────────────── */
     .declaration {
       text-align: center;
       padding: 40px 24px;
@@ -168,15 +155,12 @@
       line-height: 1.9;
       font-weight: 300;
       color: var(--ink);
-      text-align: justify;
-      text-justify: inter-word;
     }
     .declaration p strong {
       font-weight: 600;
       color: var(--ember);
     }
 
-    /* ── AMEN ────────────────────────────────────────────────── */
     .amen {
       text-align: center;
       margin: 56px 0 40px;
@@ -190,7 +174,6 @@
     }
     .amen .emoji { font-style: normal; font-size: 2rem; display: block; margin-top: 8px; }
 
-    /* ── VERSE ───────────────────────────────────────────────── */
     .verse {
       text-align: center;
       padding: 32px 24px;
@@ -214,7 +197,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* ── FOOTER ──────────────────────────────────────────────── */
     footer {
       text-align: center;
       margin-top: 64px;
@@ -234,7 +216,6 @@
     }
     footer a:hover { text-decoration: underline; }
 
-    /* ── ANIMATIONS ──────────────────────────────────────────── */
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-24px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -244,7 +225,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── RESPONSIVE ──────────────────────────────────────────── */
     @media (max-width: 520px) {
       .page { padding: 32px 20px 50px; }
     }
@@ -267,187 +247,187 @@
   <article class="prayer">
 
     <p class="opening">
-      Pai celestial, Senhor da minha vida e Autor de cada novo começo,<br />
-      chego perto de Ti sem disfarces, sem guardar nada, sem esconder o que sinto.
+      Senhor Deus, Fonte de toda vida e Sustento da minha alma,<br />
+      venho a Ti de coração aberto, sem máscaras, sem reservas, sem medos.
     </p>
 
     <p>
-      Antes de pedir qualquer coisa, quero reconhecer o que já recebi.
-      <strong>Obrigado pelo fôlego de cada manhã,</strong>
-      pelo corpo e pela mente que ainda respondem, pelo ânimo que renasce
-      mesmo depois das quedas, e por essa paz teimosa que continua habitando nossa casa,
-      mesmo quando tudo ao redor parece instável.
-      Obrigado por me segurar quando eu já não tinha mais como me firmar sozinho.
+      Antes de clamar, quero Te agradecer. <strong>Obrigado pelo ar que enche meus pulmões,</strong>
+      pela saúde que mantém meu corpo e minha mente firmes,
+      pela força que me sustenta nas quedas
+      e pela paz que habita meu lar mesmo em meio às tempestades.
+      Obrigado por me carregar quando minhas forças vacilam
+      e por não me abandonar diante dos desafios.
     </p>
 
     <p>
-      Sou grato pelos ensinamentos que só o silêncio consegue passar,
-      pela paciência que fui obrigado a desenvolver esperando,
-      pelas chances que surgiram exatamente quando precisavam surgir —
-      e até pelos caminhos que se fecharam, porque foi ali que aprendi a persistir.
-      Obrigado pela disposição de continuar
-      e pela esperança que insiste em não morrer dentro de mim.
+      Obrigado pelas lições silenciosas e pela paciência que a espera me ensina,
+      pelas oportunidades que chegam no tempo certo
+      e até pelas portas que se fecharam, mas que me ensinaram perseverança.
+      Obrigado pela coragem que me sustenta
+      e pela esperança que insiste em florescer em meu coração.
     </p>
 
     <p>
-      Agradeço pelos meus, pelo teto que ainda temos, pela comida na mesa
-      e por tudo o que chega até nós, dia após dia, sem que eu sempre entenda como.
-      Obrigado por proteger minha cabeça da ansiedade, meu coração do rancor
-      e meus pensamentos do medo excessivo.
-      Obrigado por reconstruir minhas forças, devolver minha segurança
-      e me dar motivo para acordar leve, mesmo quando o dia anterior foi pesado.
+      Sou grato pela minha família, pelo meu lar, pelo alimento, pelo abrigo
+      e pela provisão que recebo a cada dia.
+      Obrigado por guardar minha mente da ansiedade, meus pensamentos do medo
+      e meu coração da amargura.
+      Obrigado por fortalecer meu espírito, restaurar minha confiança
+      e renovar minha alegria a cada amanhecer.
     </p>
 
     <p>
-      Tu acompanhaste cada escolha difícil que já precisei fazer —
-      os recomeços que exigiram coragem, as trocas do que era familiar
-      por um futuro que eu ainda não conseguia enxergar por completo.
-      Tu sabes o custo de cada passo dado sem certeza nenhuma,
-      de cada vez que apostei em dias melhores sem ver o caminho até o fim.
+      Tu estavas lá em cada decisão difícil que já tomei —
+      nos recomeços que me custaram coragem, nas mudanças que deixaram para trás
+      o que era conhecido em troca de uma esperança ainda incerta.
+      Tu viste o preço de cada passo dado sem garantias,
+      de cada vez que escolhi acreditar em algo melhor mesmo sem enxergar o caminho inteiro.
     </p>
 
     <div class="emphasis">
       <p>
-        Tu estavas presente em cada tentativa que não deu certo,<br />
-        em cada porta que se abriu e, sem aviso, voltou a se fechar.<br />
-        Nada disso foi desperdiçado, Senhor, mesmo quando pareceu ser.<br />
-        Obrigado por eu continuar aqui, ainda em pé.
+        Tu estavas lá em cada tentativa que não deu certo,<br />
+        em cada porta que se abriu e depois se fechou sem explicação.<br />
+        Nada disso foi em vão, Senhor, mesmo quando pareceu.<br />
+        Obrigado por eu ainda estar de pé.
       </p>
     </div>
 
     <div class="divider"><span>✦</span></div>
 
     <p>
-      Pai, coloco em Tuas mãos a decepção de tantas portas que não se abriram.
-      Coloco as chances que pareciam garantidas e que ruíram do nada.
-      Coloco também a esperança que construí e que às vezes teima em não se concretizar.
-      Ainda que eu não compreenda o porquê, prefiro acreditar
-      que Tu estavas me guardando de algo, ou me moldando para algo maior.
+      Pai, eu Te entrego a frustração de tantas portas fechadas.
+      Entrego as oportunidades que pareciam certas e que, de repente, desmoronaram sem aviso.
+      Entrego a esperança que criei e que às vezes parece não se cumprir.
+      Mesmo sem eu entender o motivo, eu escolho crer
+      que Tu estavas me protegendo de algo, ou me preparando para algo maior.
     </p>
 
     <p>
-      Entrego a Ti cada pedido que ficou sem resposta, cada silêncio que ainda dói,
-      e toda comparação que insiste em me dizer que fico para trás enquanto os outros seguem.
-      Sei que esse pensamento não nasce de Ti,
-      por isso o devolvo agora, e peço perdão pelas vezes em que permiti
-      que ele me fizesse acreditar que existe algo de errado comigo.
+      Entrego a Ti cada tentativa sem resposta, cada silêncio que dói,
+      cada comparação que tenta me convencer de que os outros avançam enquanto eu fico para trás.
+      Eu sei que essa comparação não vem de Ti,
+      e por isso eu a devolvo, Senhor, e Te peço perdão pelas vezes em que deixei que ela
+      me convencesse de que algo está errado comigo.
     </p>
 
     <p>
-      Diante de Ti, assumo também as minhas falhas:
-      os momentos em que reagi com pouca paciência, em que questionei a Tua bondade,
-      em que confiei primeiro na minha própria capacidade antes de buscar a Ti,
-      em que deixei o medo ter mais peso do que a fé.
-      Peço perdão de coração — não para me punir,
-      mas para me aproximar ainda mais de Ti e mudar o que precisa mudar.
+      Diante de Ti eu também reconheço as minhas falhas:
+      as vezes em que respondi com impaciência, em que duvidei da Tua bondade,
+      em que busquei minhas próprias forças antes de buscar a Ti,
+      em que deixei o medo falar mais alto do que a fé.
+      Peço perdão com um coração sincero — não para me condenar,
+      mas para me aproximar ainda mais de Ti, disposto a mudar o que for preciso mudar.
     </p>
 
     <div class="emphasis">
       <p>
-        Silencia em mim a voz que só condena,<br />
-        e faz ecoar no lugar dela a Tua voz,<br />
-        aquela que ensina com amor, e não com culpa.
+        Tira de mim a voz que só sabe acusar,<br />
+        e coloca em seu lugar a Tua voz,<br />
+        que corrige com amor, e não com vergonha.
       </p>
     </div>
 
     <div class="divider"><span>✦</span></div>
 
     <p>
-      Senhor, <strong>este tem sido um dos períodos mais pesados da nossa caminhada.</strong>
-      A despensa está vazia. Minha esposa segura sozinha a conta do aluguel,
-      e sobre mim recai o peso de me sentir culpado, envergonhado, incapaz de ajudar como gostaria.
-      Existem noites em que a angústia toma conta de mim e o ar parece faltar.
+      Senhor, <strong>estamos passando por uma das fases mais difíceis da nossa vida.</strong>
+      Os mantimentos estão se esgotando.
+      Minha esposa carrega sozinha o peso do aluguel,
+      e eu sinto sobre mim o peso da culpa, da vergonha, da impotência.
+      Há noites em que o desespero me abraça e eu não consigo respirar de tanta dor.
     </p>
 
     <p>
-      A insegurança em relação a mim mesmo me consome por dentro.
-      Fico me perguntando se realmente tenho capacidade, se mereço uma chance,
-      se ainda existe alguém que enxerga valor no que posso oferecer.
-      Há momentos em que a tristeza me faz duvidar de tudo:
-      do meu valor, do meu propósito, do meu lugar neste mundo —
-      neste lugar novo, longe de quem eu conhecia, sem amigos nem parentes por perto,
-      apenas eu, minha esposa e meu enteado.
+      A falta de confiança em mim mesmo me devora por dentro.
+      Eu me pergunto se sou capaz, se mereço uma chance,
+      se alguém ainda acredita no que tenho a oferecer.
+      Há momentos em que o abatimento me faz questionar tudo:
+      meu valor, meu propósito, o meu lugar nesse mundo —
+      neste lugar novo, sem conhecidos, sem amigos, sem parentes por perto,
+      só eu, minha esposa e meu enteado.
     </p>
 
     <p>
-      <strong>Mostra-me o caminho, Pai.</strong> Sinto-me perdido.
-      São tantas portas que não se abrem, tantos silêncios diante dos meus pedidos,
-      tanto esforço que ainda não trouxe resultado visível.
-      Manda-me um sinal. Uma confirmação. Uma fresta de luz.
-      <strong>Concede-me discernimento</strong> para as decisões deste momento tão delicado,
-      e que a Tua sabedoria seja mais forte do que a minha aflição.
+      <strong>Dá-me direção, Pai.</strong> Eu estou desorientado.
+      Há tantas portas fechadas, tantos silêncios nas respostas,
+      tanto esforço que ainda não gerou fruto visível.
+      Mostra-me um sinal. Uma confirmação. Uma brecha de luz.
+      <strong>Dá-me sabedoria</strong> para as decisões deste momento delicado,
+      e que a Tua sapiência fale mais alto do que o meu desespero.
     </p>
 
     <p>
-      Senhor, hoje trago diante de Ti o desejo de conquistar espaço na área de tecnologia.
-      Tu conheces meu coração, meus receios, minhas inseguranças
-      e as dúvidas que insistem em tentar abalar minha fé.
-      Muitas vezes acho que ainda não estou pronto, que preciso estudar mais,
-      me aprofundar mais, evoluir mais — mas também sei que ninguém começa já experiente.
-      Se a chance aparecer, eu vou correr atrás com dedicação
-      e entregar o meu melhor todos os dias.
+      Senhor, hoje eu coloco diante de Ti o meu sonho de conquistar uma oportunidade
+      na área de programação. Tu conheces o meu coração, meus medos, minhas inseguranças
+      e as dúvidas que às vezes tentam enfraquecer minha fé.
+      Muitas vezes penso que ainda não estou preparado, que preciso estudar mais,
+      aprender mais, evoluir mais — mas também entendo que ninguém nasce pronto.
+      Se uma oportunidade chegar até mim, eu me desenvolverei com dedicação
+      e darei o meu melhor todos os dias.
     </p>
 
     <p>
-      Fortalece a minha mente para que eu pare de me medir pelos outros.
-      Afasta de mim a sensação de incapacidade, o medo de fracassar,
-      a ansiedade pelo que ainda vai vir e qualquer voz que insista em me diminuir.
-      <strong>Peço a Ti uma oportunidade de trabalho</strong> — não qualquer uma,
-      mas uma que me faça levantar de novo, que restitua a dignidade que sinto ter perdido,
-      que mostre para mim e para quem eu amo que valeu a pena insistir.
+      Fortalece minha mente para que eu não me compare com ninguém.
+      Afasta de mim o sentimento de incapacidade, o medo do fracasso,
+      a ansiedade pelo futuro e toda voz que insiste em dizer que eu não consigo.
+      <strong>Eu Te peço uma oportunidade de trabalho</strong> — não uma qualquer,
+      uma que me reergua, que me devolva a dignidade que sinto ter perdido,
+      que prove para mim e para quem eu amo que essa luta valeu a pena.
     </p>
 
     <div class="emphasis">
       <p>
-        Não estou pedindo abundância, Senhor.<br />
-        Estou pedindo um chão estável onde minha família consiga se firmar.
+        Eu não estou pedindo riqueza, Senhor.<br />
+        Estou pedindo um chão firme onde minha família possa ficar de pé.
       </p>
     </div>
 
     <p>
-      Pai, dá forças à minha esposa. Ela tem sustentado muita coisa sozinha.
-      Renova o ânimo dela também nos dias em que ela quiser ceder ao cansaço.
-      Que ela nunca se sinta enfrentando isso sem companhia.
-      Que o nosso amor aguente essa pressão que tenta nos derrubar.
-      Cuida da nossa casa, da nossa mente e da nossa fé.
+      Pai, sustenta minha esposa. Ela tem carregado tanto.
+      Dá-lhe força quando ela também quiser desabar.
+      Que ela não se sinta sozinha nessa batalha.
+      Que o nosso amor resista a essa pressão que tenta nos quebrar.
+      Protege nosso lar, nossas mentes, nossa fé.
     </p>
 
     <p>
-      Declaro que existe um lugar reservado para mim —
-      onde a minha trajetória, a minha entrega e o meu caráter
-      serão vistos como diferencial, não como impedimento.
-      Declaro que tenho capacidade, que mereço uma oportunidade,
-      que meu potencial é verdadeiro, ainda que eu mesmo não consiga vê-lo por inteiro.
-      Declaro que meu propósito segue vivo — apenas está tomando um novo formato.
+      Eu declaro que existe um lugar preparado para mim —
+      um lugar onde a minha história, a minha dedicação e o meu caráter
+      serão vistos como diferencial, e não como obstáculo.
+      Eu declaro que sou capaz, que mereço uma chance,
+      que o meu potencial é real, mesmo quando ainda não consigo enxergá-lo por completo.
+      Eu declaro que o meu propósito não terminou — ele está apenas ganhando uma nova forma.
     </p>
 
     <div class="declaration">
       <p>
-        Não serei vencido por esta fase.<br />
-        Serei <strong>transformado</strong> por ela.<br />
-        E quando eu deixar este vale para trás,<br />
-        vou carregar uma gratidão que poucos chegam a conhecer.
+        Eu não serei derrotado pela situação.<br />
+        Eu serei <strong>transformado</strong> por ela.<br />
+        E quando eu sair desse vale,<br />
+        sairei com uma gratidão que poucos conseguem ter.
       </p>
     </div>
 
     <p>
-      Por isso, Senhor — <strong>abre os caminhos certos. Fecha os errados.</strong>
-      Cruza a minha rota com as pessoas certas.
-      Remove os obstáculos que estão fora do meu alcance enxergar.
-      Age por mim onde eu não tenho como agir.
-      E faz com que, no momento em que a bênção chegar,
-      eu consiga reconhecer nela a Tua mão.
+      Então, Senhor — <strong>abre as portas certas. Fecha as erradas.</strong>
+      Coloca no meu caminho as pessoas certas.
+      Derruba os obstáculos que eu não consigo ver.
+      Intercede por mim onde eu não tenho acesso.
+      E faz com que, quando a bênção chegar,
+      eu saiba reconhecer que foi a Tua mão.
     </p>
 
     <p>
-      Entrego-me ao Teu tempo, à Tua forma de agir, ao Teu plano.<br />
-      Porque tudo o que planejei até aqui não deu certo,
-      mas o que Tu planejas jamais falha.
-      Não peço para enxergar o percurso inteiro —
-      peço apenas coragem para o próximo passo,
-      disposição para continuar mesmo com medo,
-      e confiança de que, mesmo diante do silêncio que não entendo,
-      Tu segues agindo por mim.
+      Eu me rendo ao Teu tempo. Ao Teu jeito. Ao Teu plano.<br />
+      Porque o meu planejamento falhou,
+      mas o Teu nunca falha.
+      Não peço que me mostres o mapa inteiro —
+      peço apenas força para dar o próximo passo,
+      coragem para insistir mesmo com medo,
+      e fé para confiar que, mesmo quando eu não entendo o silêncio,
+      Tu ainda estás trabalhando por mim.
     </p>
 
   </article>
